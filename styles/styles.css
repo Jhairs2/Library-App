@@ -1,0 +1,116 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    height: 100%;
+    width: 100%;
+    --nav-background-color: #65a30d;
+    --nav-box-shadow: 2px 2px 4px #374151;
+    --card-background-color: #dcfce7;
+    --card-box-shadow: 4px 4px 4px #374151;
+    --book-details-background-color: #f0fdf4;
+    --book-details-box-shadow: 2px 2px 4px #374151;
+    --background-color: #bef264;
+}
+
+body {
+    background-color: var(--background-color);
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 1em;
+
+}
+
+
+.book-options {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 20%;
+    grid-column: 1;
+    background-color: var(--nav-background-color);
+    box-shadow: var(--nav-box-shadow);
+
+}
+
+.main-container {
+    grid-column: 2;
+    display: grid;
+    grid-template-rows: repeat(auto-fit, 1fr);
+    gap: 1em;
+    padding: 1em;
+}
+
+.card {
+    font-size: 3rem;
+    background-color: var(--card-background-color);
+    width: 95%;
+    height: 200px;
+    border: 2px solid black;
+    border-radius: 8px;
+    box-shadow: var(--card-box-shadow);
+    transition: all 0.2s ease-in-out;
+}
+
+.add {
+    position: relative;
+    width: 100px;
+    height: 50px;
+    border-radius: 20px;
+}
+
+.book-details-container {
+    display: none;
+}
+
+.book-details-container.opened {
+    position: relative;
+    box-shadow: var(--book-details-box-shadow);
+    z-index: 100;
+    display: block;
+    height: 250px;
+    width: 250px;
+    padding-left: 0.25em;
+    background-color: var(--book-details-background-color);
+    border-radius: 8px;
+
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    list-style: none;
+}
+
+input {
+    width: 95%;
+    border-radius: 8px;
+    padding: 0.25em;
+}
+
+ul li:nth-child(4) {
+    display: flex;
+    justify-content: center;
+}
+
+.book-details-container .submit {
+    display: flex;
+    padding: 0.25em;
+}
+
+.card button {
+    width: 50px;
+    height: 25px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}

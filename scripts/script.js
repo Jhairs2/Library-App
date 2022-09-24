@@ -1,64 +1,55 @@
-const bookData = document.querySelectorAll("input");
-const button = document.querySelector(".submit");
-const addBook = document.querySelector(".add")
-let info = document.querySelector(".info");
-let MAIN = document.querySelector(".content");
-let myLibrary = [];
+// Global variables
+const addBook = document.querySelector(".add");
+const menu = document.querySelector(".book-details-container");
+const bookContent = document.querySelector(".main-container");
+let myLibrary = []
+
+addBook.addEventListener("click", (e) => {
+    e.preventDefault();
+    menu.classList.toggle('opened');
+}, false);
 
 
 
-button.addEventListener("click", () => {
-    addBookToLibrary();
-    bookData.forEach(input => {
-        input.value = "";
-    })
-    hideInput();
-    p1 = document.createElement("p");
-    p1.textContent = myLibrary[0].title;
-    MAIN.appendChild(p1)
-})
-addBook.addEventListener("click", showInput);
-
-
-
-function Book(title, author, pages, haveRead) {
+function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.haveRead = haveRead;
-
-}
-Book.prototype.info = function () {
-    return `${this.title} by ${this.author}, ${this.pages} pages, ${this.haveRead}`
+    this.read = read;
 }
 
-
-function addBookToLibrary() {
-    myLibrary.push(new Book(bookData[0].value, bookData[1].value, bookData[2].value, bookData[3].value));
+Book.prototype.showInfo = function () {
+    return `${this.title}, by ${this.author}, ${this.pages} pages, ${this.read}`;
 }
 
 
+function addBookToLibrary(title, author, pages, read) {
+    let book = new Book(title, author, pages, read);
+    myLibrary.push(book);
+}
 
 function showBooks() {
     for (let i = 0; i < myLibrary.length; i++) {
-        console.log(myLibrary[i])
+        const bookContent = document.querySelector(".main-container");
+        const deleteButton = document.createElement("button");
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        deleteButton.textContent = "Delete";
+        deleteButton.setAttribute("data-index", i);
+        let card = document.createElement("div");
+        let text = document.createElement("p");
+        card.classList.add("card");
+        text.textContent = myLibrary[i].title + " by " + myLibrary[i].author + " " + myLibrary[i].pages + " pages " + myLibrary[i].read;
+        card.appendChild(text);
+        card.appendChild(deleteButton);
+        card.appendChild(checkbox);
+        bookContent.appendChild(card);
     }
-};
-
-
-function showInput() {
-    bookData.forEach(e => {
-        e.style.display = "flex";
-    })
-    button.style.display = "block";
-    addBook.style.display = "none";
-
 }
 
-function hideInput() {
-    bookData.forEach(e => {
-        e.style.display = "none";
-    })
-    button.style.display = "none";
-    addBook.style.display = "block"
-}
+addBookToLibrary("TIm", "Bobby Lee", "456", "Read");
+addBookToLibrary("Rose Clarkson", "Freddy Deone", "851", "Read");
+addBookToLibrary("Derrick", "Commie Gregs", "152", "Have not read");
+addBookToLibrary("The Other Way", "Rich Nathan", "250", "Read");
+addBookToLibrary("Beach Boys", "Rolly Mikerson", "85", "Have not read");
+showBooks();
