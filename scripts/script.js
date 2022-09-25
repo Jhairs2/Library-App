@@ -29,6 +29,8 @@ function showBooks() {
         let textAuthor = document.createElement("p");
         let textPages = document.createElement("p");
         let textReadCheck = document.createElement("p");
+        let checkBox = document.createElement("input");
+        checkBox.type = "checkbox";
         card.classList.add("card");
         textTitle.textContent = "Title: " + myLibrary[i].title;
         textAuthor.textContent = "Author: " + myLibrary[i].author;
@@ -38,6 +40,7 @@ function showBooks() {
         card.appendChild(textAuthor);
         card.appendChild(textPages);
         card.appendChild(textReadCheck);
+        card.appendChild(checkBox);
         bookContent.appendChild(card);
     }
 }
