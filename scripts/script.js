@@ -25,10 +25,19 @@ function showBooks() {
     for (let i = 0; i < myLibrary.length; i++) {
         const bookContent = document.querySelector(".main-content");
         let card = document.createElement("div");
-        let text = document.createElement("p");
+        let textTitle = document.createElement("p");
+        let textAuthor = document.createElement("p");
+        let textPages = document.createElement("p");
+        let textReadCheck = document.createElement("p");
         card.classList.add("card");
-        text.textContent = myLibrary[i].title + " by " + myLibrary[i].author + " " + myLibrary[i].pages + " pages " + myLibrary[i].read;
-        card.appendChild(text);
+        textTitle.textContent = "Title: " + myLibrary[i].title;
+        textAuthor.textContent = "Author: " + myLibrary[i].author;
+        textPages.textContent = "Page Count: " + myLibrary[i].pages + " pages";
+        textReadCheck.textContent = "Read: " + myLibrary[i].read;
+        card.appendChild(textTitle);
+        card.appendChild(textAuthor);
+        card.appendChild(textPages);
+        card.appendChild(textReadCheck);
         bookContent.appendChild(card);
     }
 }

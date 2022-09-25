@@ -131,7 +131,12 @@ input {
 
 
 .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
     border: 2px solid black;
     width: 250px;
     width: 250px;
+    padding: 1.5em;
 }
