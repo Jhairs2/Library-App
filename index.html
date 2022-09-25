@@ -11,39 +11,42 @@
 </head>
 
 <body>
-    <nav class="book-options">
-        <h2>Library App Menu</h2>
-        <p>The Odin Project</p>
-        <div></div>
-    </nav>
-    <div class="main-container">
-        <button class="add">NEW BOOK</button>
-        <div class="book-details-container">
-            <form>
-                <ul class="book-details">
-                    <li><label for="title">Title:</label>
-                        <input type="text" name="title" id="title">
-                    </li>
-                    <li><label for="author">Author:</label>
-                        <input type="text" name="author" id="author">
-                    </li>
-                    <li><label for="pages">Page Amount:</label>
-                        <input type="number" name="pages" id="pages">
-                    </li>
-                    <li>
-                        <div><label for="read-check">Already read?</label>
-                            <input type="checkbox" name="read-check" id="read-check">
-                        </div>
-                    </li>
-                </ul>
-                <button class="submit" type="submit">Submit</button>
+    <header class="header-container">
+        <span>The Library App</span>
+        <div class="socials">
+            <a>1</a>
+            <a>1</a>
+            <a>1</a>
+        </div>
+    </header>
+
+    <aside class="menu-container">
+        <div class="menu">
+            <span>Book Information</span>
+            <form action="" class="form-container">
+                <div class="input-container">
+                    <label for="title">Title:</label>
+                    <input type="text" name="title" id="title">
+                </div>
+                <div class="input-container">
+                    <label for="author">Author:</label>
+                    <input type="text" name="author" id="author">
+                </div>
+                <div class="input-container">
+                    <label for="pages">Page Count:</label>
+                    <input type="number" name="pages" id="pages">
+                </div>
+                <div class="input-container">
+                    <label for="checkbox">Have you read it?</label>
+                    <input type="checkbox" name="readCheck" id="readCheck">
+                </div>
+                <button type="submit">+NEW BOOK</button>
             </form>
         </div>
-    </div>
-    <footer>
-        <div class="footer-info">
-            <p>Justin Hairston</p>
-        </div>
+    </aside>
+
+    <footer class="footer-container">
+        <span class="footer-info"></span>
     </footer>
 
 </body>
