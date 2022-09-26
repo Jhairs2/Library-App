@@ -36,6 +36,7 @@ body {
     grid-template-rows: 1fr repeat(2, 3fr);
 }
 
+/* Header Content */
 .header-container {
     background-color: var(--header-background-color);
     grid-column: 2 / -1;
@@ -70,6 +71,7 @@ body {
 
 }
 
+/* Menu Section */
 .menu-container {
     grid-area: 1 / 1 / -1 / 1;
     font-size: 1.25rem;
@@ -122,6 +124,7 @@ input {
     padding: 0.25em;
 }
 
+/* Main Content Section */
 .main-content {
     grid-area: 2 / 2 / -1 / -1;
     display: grid;
