@@ -1,6 +1,4 @@
 // // Global variables
-// const addBook = document.querySelector(".add");
-// const menu = document.querySelector(".book-details-container");
 let myLibrary = []
 
 
@@ -14,7 +12,6 @@ function Book(title, author, pages, read) {
 Book.prototype.showInfo = function () {
     return `${this.title}, by ${this.author}, ${this.pages} pages, ${this.read}`;
 }
-
 
 function addBookToLibrary(title, author, pages, read) {
     let book = new Book(title, author, pages, read);
@@ -30,7 +27,11 @@ function showBooks() {
         let textPages = document.createElement("p");
         let textReadCheck = document.createElement("p");
         let checkBox = document.createElement("input");
+        let delButton = document.createElement("button")
+        delButton.textContent = "Delete"
         checkBox.type = "checkbox";
+        checkBox.classList.add("readCheck");
+        checkBox.addEventListener("click", myLibrary.toggleRead)
         card.classList.add("card");
         textTitle.textContent = "Title: " + myLibrary[i].title;
         textAuthor.textContent = "Author: " + myLibrary[i].author;
@@ -41,15 +42,17 @@ function showBooks() {
         card.appendChild(textPages);
         card.appendChild(textReadCheck);
         card.appendChild(checkBox);
+        card.appendChild(delButton);
         bookContent.appendChild(card);
     }
 }
 
 addBookToLibrary("TIm", "Bobby Lee", "456", "Read");
 addBookToLibrary("Rose Clarkson", "Freddy Deone", "851", "Read");
-addBookToLibrary("Derrick", "Commie Gregs", "152", "Have not read");
+addBookToLibrary("Derrick", "Commie Gregs", "152", "Not read");
 addBookToLibrary("The Other Way", "Rich Nathan", "250", "Read");
-addBookToLibrary("Beach Boys", "Rolly Mikerson", "85", "Have not read");
+addBookToLibrary("Beach Boys", "Rolly Mikerson", "85", "Not read");
+addBookToLibrary("TIm", "Bobby Lee", "456", "Read");
 
 
 
