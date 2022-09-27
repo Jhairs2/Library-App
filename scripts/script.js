@@ -1,6 +1,21 @@
 // // Global variables
 let myLibrary = []
 
+const openModal = document.getElementById("addBook");
+const modal = document.getElementById("modal");
+const closeModal = document.getElementById("close-modal");
+
+openModal.addEventListener("click", ()=> {
+    modal.showModal();
+    modal.style.display = "";
+})
+
+closeModal.addEventListener("click", ()=> {
+    modal.style.display = "none";
+    modal.close();
+})
+
+
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -40,7 +55,6 @@ function showBooks() {
             card.appendChild(p);
         }
     });
-
 }
 
 
@@ -51,10 +65,6 @@ addBookToLibrary("Derrick", "Commie Gregs", "152", "Not read");
 addBookToLibrary("The Other Way", "Rich Nathan", "250", "Read");
 addBookToLibrary("Beach Boys", "Rolly Mikerson", "85", "Not read");
 addBookToLibrary("TIm", "Bobby Lee", "456", "Read");
-addBookToLibrary("TIm", "Bobby Lee", "456", "Read");
-addBookToLibrary("Rose Clarkson", "Freddy Deone", "851", "Read");
-addBookToLibrary("Derrick", "Commie Gregs", "152", "Not read");
-addBookToLibrary("The Other Way", "Rich Nathan", "250", "Read");
-addBookToLibrary("Beach Boys", "Rolly Mikerson", "85", "Not read");
-addBookToLibrary("TIm", "Bobby Lee", "456", "Read");
+
+
 
