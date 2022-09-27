@@ -20,24 +20,20 @@
         </div>
     </header>
 
- 
-
-  
-
-    <dialog class="modal" id="modal">
+    <dialog class="modal" style="display: none;" id="modal">
         <h2>Book Information</h2>
         <form action="" id="form-container">
             <div class="input-container">
                 <label for="title">Title:</label>
-                <input type="text" name="title" id="title">
+                <input type="text" name="title" id="title" required placeholder="Fairy Tale">
             </div>
             <div class="input-container">
                 <label for="author">Author:</label>
-                <input type="text" name="author" id="author">
+                <input type="text" name="author" id="author" required placeholder="Stephen King">
             </div>
             <div class="input-container">
                 <label for="pages">Page Count:</label>
-                <input type="number" name="pages" id="pages">
+                <input type="number" name="pages" id="pages" required>
             </div>
             <div class="input-container check">
                 <label for="checkbox">Have you read it?</label>

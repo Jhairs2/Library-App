@@ -5,6 +5,9 @@ const openModal = document.getElementById("addBook");
 const modal = document.getElementById("modal");
 const closeModal = document.getElementById("close-modal");
 
+
+
+// Event listeners to open and close modal
 openModal.addEventListener("click", ()=> {
     modal.showModal();
     modal.style.display = "";
@@ -37,6 +40,7 @@ function addBookToLibrary(title, author, pages, read) {
 function showBooks() {
     // Select the main section
     const mainContainer = document.querySelector(".main-content");
+    const readCheck = document.createElement("input")
 
     // Remove all previous cards
     const removeDivs = document.querySelectorAll(".card");
@@ -55,7 +59,10 @@ function showBooks() {
             card.appendChild(p);
         }
     });
+
+    
 }
+
 
 
 
