@@ -32,14 +32,14 @@ body {
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 1fr 4fr;
     grid-template-rows: 1fr repeat(2, 3fr);
 }
 
 /* Header Content */
 .header-container {
     background-color: var(--header-background-color);
-    grid-column: 2 / -1;
+    grid-column: 1 / -1;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1em;
@@ -71,65 +71,13 @@ body {
 
 }
 
-/* Menu Section */
-.menu-container {
-    grid-area: 1 / 1 / -1 / 1;
-    font-size: 1.25rem;
-    box-shadow: var(--nav-box-shadow);
-}
-
-
-.menu {
-    background-color: var(--nav-background-color);
-    grid-column: auto;
-    display: grid;
-    grid-template-rows: 0.25fr 3fr;
-    gap: 2em;
-    align-items: center;
-    padding: 1em;
-    min-height: 100%;
-}
-
-.menu span {
-    display: flex;
-    align-items: center;
-    font-size: 2rem;
-    text-align: center;
-    text-shadow: 4px 4px 4px #374151;
-}
-
-.form-container {
-    grid-row: 2 / -1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    gap: 2.5em;
-
-}
-
-.input-container {
-    display: flex;
-    flex-direction: column;
-    width: 85%;
-}
-
-
-label {
-    padding-bottom: 0.25em;
-}
-
-input {
-    border-radius: 8px;
-    padding: 0.25em;
-}
 
 /* Main Content Section */
 .main-content {
-    grid-area: 2 / 2 / -1 / -1;
+    grid-area: 2 / 1 / -1 / -1;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2em;
+    gap: 1.5em;
     padding: 1.5em;
     height: 100%;
 
@@ -145,7 +93,6 @@ input {
     justify-content: center;
     gap: 1em;
     border: 2px solid black;
-    width: 250px;
     width: 250px;
     padding: 1.5em;
     transition: all 0.5s ease-in-out;
@@ -169,3 +116,5 @@ input {
     cursor: pointer;
     background-color: rgba(255, 255, 255, .60);
 }
+
+

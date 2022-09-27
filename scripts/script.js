@@ -9,43 +9,41 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-Book.prototype.showInfo = function () {
-    return `${this.title}, by ${this.author}, ${this.pages} pages, ${this.read}`;
-}
+// Book.prototype.showInfo = function () {
+//     return `${this.title}, by ${this.author}, ${this.pages} pages, ${this.read}`;
+// }
 
 function addBookToLibrary(title, author, pages, read) {
     let book = new Book(title, author, pages, read);
     myLibrary.push(book);
+    showBooks();
 }
 
 function showBooks() {
-    for (let i = 0; i < myLibrary.length; i++) {
-        const bookContent = document.querySelector(".main-content");
-        let card = document.createElement("div");
-        let textTitle = document.createElement("p");
-        let textAuthor = document.createElement("p");
-        let textPages = document.createElement("p");
-        let textReadCheck = document.createElement("p");
-        let checkBox = document.createElement("input");
-        let delButton = document.createElement("button")
-        delButton.textContent = "Delete"
-        checkBox.type = "checkbox";
-        checkBox.classList.add("readCheck");
-        checkBox.addEventListener("click", myLibrary.toggleRead)
-        card.classList.add("card");
-        textTitle.textContent = "Title: " + myLibrary[i].title;
-        textAuthor.textContent = "Author: " + myLibrary[i].author;
-        textPages.textContent = "Page Count: " + myLibrary[i].pages + " pages";
-        textReadCheck.textContent = "Read: " + myLibrary[i].read;
-        card.appendChild(textTitle);
-        card.appendChild(textAuthor);
-        card.appendChild(textPages);
-        card.appendChild(textReadCheck);
-        card.appendChild(checkBox);
-        card.appendChild(delButton);
-        bookContent.appendChild(card);
+    // Select the main section
+    const mainContainer = document.querySelector(".main-content");
+
+    // Remove all previous cards
+    const removeDivs = document.querySelectorAll(".card");
+    for(let i = 0; i < removeDivs.length; i++) {
+        removeDivs[i].remove();
     }
+
+    // Append book card with book info to content
+    myLibrary.forEach(myLibrary => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        mainContainer.appendChild(card);
+        for(let key in myLibrary) {
+            const p = document.createElement("p");
+            p.textContent = (`${key}: ${myLibrary[key]}`);
+            card.appendChild(p);
+        }
+    });
+
 }
+
+
 
 addBookToLibrary("TIm", "Bobby Lee", "456", "Read");
 addBookToLibrary("Rose Clarkson", "Freddy Deone", "851", "Read");
@@ -53,7 +51,10 @@ addBookToLibrary("Derrick", "Commie Gregs", "152", "Not read");
 addBookToLibrary("The Other Way", "Rich Nathan", "250", "Read");
 addBookToLibrary("Beach Boys", "Rolly Mikerson", "85", "Not read");
 addBookToLibrary("TIm", "Bobby Lee", "456", "Read");
+addBookToLibrary("TIm", "Bobby Lee", "456", "Read");
+addBookToLibrary("Rose Clarkson", "Freddy Deone", "851", "Read");
+addBookToLibrary("Derrick", "Commie Gregs", "152", "Not read");
+addBookToLibrary("The Other Way", "Rich Nathan", "250", "Read");
+addBookToLibrary("Beach Boys", "Rolly Mikerson", "85", "Not read");
+addBookToLibrary("TIm", "Bobby Lee", "456", "Read");
 
-
-
-showBooks();
