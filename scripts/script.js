@@ -68,7 +68,7 @@ function showBooks() {
         deleteButton.classList.add("delete");
         card.classList.add("card");
         deleteButton.dataset.index = index;
-        readContainer.classList.add("readCheck");
+        readContainer.classList.add("read-check");
         mainContainer.appendChild(card);
         index++;
         for (let key in myLibrary) {
@@ -137,6 +137,7 @@ submit.addEventListener("click", (e) => {
     e.preventDefault();
     const readCheck = Object.create(Book.prototype);
     const formInputs = document.querySelectorAll("input");
+    const form = document.querySelector("#form-container");
     title = formInputs[0].value;
     author = formInputs[1].value;
     pages = formInputs[2].value;
@@ -145,6 +146,7 @@ submit.addEventListener("click", (e) => {
         return;
       }
     addBooksToLibrary(title, author, pages, readCheck.readToggle(formInputs[3]));
+    form.reset();
     modal.style.display = "none";
     modal.close();
 })
