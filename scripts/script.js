@@ -44,8 +44,9 @@ function addBooksToLibrary(title, author, pages, read) {
 
 // Function opens modal
 function openMod() {
-    modal.showModal();
     modal.style.display = "";
+    modal.showModal();
+    
 }
 // Function closes modal
 function closeMod() {
