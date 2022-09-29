@@ -15,16 +15,40 @@
     height: 100%;
     width: 100%;
     font-family: Library, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    --header-background-color: #34d399;
-    --header-box-shadow: 2px 2px 4px #374151;
-    --nav-background-color: #22c55e;
-    --nav-box-shadow: 2px 2px 4px #374151;
-    --card-background-color: #dcfce7;
-    --card-box-shadow: 4px 4px 4px #374151;
-    --book-details-background-color: #f0fdf4;
-    --book-details-box-shadow: 2px 2px 4px #374151;
-    --button-color: #dcfce7;
+
     --background-color: #ccfbf1;
+    --header-background-color: #34d399;
+    --nav-background-color: #22c55e;
+    --book-details-background-color: #f0fdf4;
+    --card-background-color: #d1fae5;
+    --modal-background-color: #d1fae5;
+
+    --header-box-shadow: 2px 2px 4px #374151;
+    --nav-box-shadow: 2px 2px 4px #374151;
+    --card-box-shadow: 4px 4px 4px #374151;
+    --book-details-box-shadow: 2px 2px 4px #374151;
+    --modal-box-shadow: 4px 4px 4px #374151;
+
+    --text-shadow-header: 4px 4px 4px #374151;
+
+    --modal-border: 4px solid #34d399;
+    --addSubmit-button-border: 2px solid black;
+    --addBook-button-border: 2px solid black;
+
+    --addBook-button-color: #dcfce7;
+    --modal-backdrop-color: rgb(0 0 0 / 0.7);
+    --addSubmit-button-color: #4ade80;
+    --delete-button-color: #ef4444;
+    --xModal-button-color: #fecaca;
+    --delete-text-color: white;
+    
+
+    --hover-addBook-button-color: rgba(255, 255, 255, .60);
+    --hover-addSubmit-button-color: rgba(255, 255, 255, .60);
+    --hover-delete-button-color: rgba(93, 93, 93, 0.315);
+    --hover-xModal-button-color: rgba(255, 255, 255, .60);
+    --hover-social-icons-color: invert(97%) sepia(0%) saturate(2217%) hue-rotate(244deg) brightness(112%) contrast(66%);
+
 }
 
 body {
@@ -38,14 +62,14 @@ body {
 
 /* Header Content */
 .header-container {
-    background-color: var(--header-background-color);
     grid-column: 1 / -1;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1em;
     padding: 2em;
+    background-color: var(--header-background-color);
     box-shadow: var(--header-box-shadow);
-    text-shadow: 4px 4px 4px #374151;
+    text-shadow: var(--text-shadow-header);
 
 }
 
@@ -62,7 +86,6 @@ body {
     justify-content: flex-end;
     align-items: center;
     gap: 3em;
-
 }
 
 .socials img {
@@ -73,7 +96,7 @@ body {
 
 .socials img:hover {
     cursor: pointer;
-    filter: invert(97%) sepia(0%) saturate(2217%) hue-rotate(244deg) brightness(112%) contrast(66%);
+    filter: var(--hover-social-icons-color);
 }
 
 
@@ -89,41 +112,61 @@ body {
 
 }
 
-
+/* Card Content */
 .card {
-    background-color: var(--card-background-color);
-    box-shadow: var(--card-box-shadow);
-    border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: baseline;
     align-items: center;
     gap: 1.5em;
-    border: 2px solid black;
-    width: 250px;
     padding: 1.5em;
+    border: 2px solid black;
+    border-radius: 8px;
+    width: 250px;
+    height: 100%;
     transition: all 0.5s ease-in-out;
-
+    background-color: var(--card-background-color);
+    box-shadow: var(--card-box-shadow);
+    overflow: scroll;
 }
 
 .card:hover {
     transform: scale(1.1);
 }
 
+.delete {
+    width: 75px;
+    height: 25px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    background-color: var(--delete-button-color);
+    color: var(--delete-text-color);
+}
 
+.delete:hover {
+    cursor: pointer;
+    background-color: var(--hover-delete-button-color);
+}
 
+.read-check {
+    display: flex;
+    gap: 1em;
+}
+
+/* Add Book button section */
 #addBook {
-    position: fixed;
-    right: 2%;
-    bottom: 2%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: none;
-    background-color: var(--button-color);
+    position: fixed;
+    right: 2%;
+    bottom: 2%;
     border-radius: 50%;
     width: 60px;
     height: 60px;
+    border: var(--addBook-button-border);
+    background-color: var(--addBook-button-color);
 }
 
 #plusButton {
@@ -133,37 +176,56 @@ body {
 
 #addBook:hover {
     cursor: pointer;
-    background-color: rgba(255, 255, 255, .60);
+    background-color: var(--hover-addBook-button-color);
 }
 
+/* Modal and form content */
 #modal {
-    box-shadow: var(--card-box-shadow);
-    border: 4px solid var(--header-background-color);
-    border-radius: 10px;
-    background-color: var(--card-background-color);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 30rem;
-    height: 30rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1em;
     padding: 2em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    width: 30rem;
+    height: 30rem;
+    box-shadow: var(--modal-box-shadow-box-shadow);
+    border: var(--modal-border);
+    background-color: var(--modal-background-color);
 }
 
 .modal::backdrop {
-    background: rgb(0 0 0 / 0.7);
+    background: var(--modal-backdrop-color);
+}
+
+#close-modal { 
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    border: none;
+    border-radius: 10px;
+    height: 25px;
+    width: 25px;
+    font-weight: bold;
+    background-color: var(--xModal-button-color);
+}
+
+#close-modal:hover {
+    cursor: pointer;
+    background-color: var(--hover-xModal-button-color);
 }
 
 #form-container {
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    width: 100%;
+    height: 100%;
+    
 }
 
 .input-container {
@@ -176,6 +238,7 @@ input {
     border-radius: 6px;
     padding: 0.5em;
 }
+
 .check {
     display: flex;
     align-items: center;
@@ -186,50 +249,13 @@ input {
     height: 3rem;
     border-radius: 20px;
     font-size: 1rem;
-    background-color: #4ade80;
-    border: 2px solid black;
+    background-color: var(--addSubmit-button-color);
+    border: var(--addSubmit-button-border);
 
 }
 
 .add:hover {
     cursor: pointer;
-    background-color: var(--button-color);
-}
-
-.delete {
-    width: 75px;
-    height: 25px;
-    border-radius: 10px;
-    border: none;
-    background-color: #ef4444;
-    color: white;
-    font-weight: bold;
-}
-
-.delete:hover {
-    cursor: pointer;
-    background-color: rgba(93, 93, 93, 0.315);
-}
-
-#close-modal {
-    border: none;
-    background-color: #fecaca;
-    height: 25px;
-    width: 25px;
-    position: absolute;
-    top: 1%;
-    right: 1%;
-    border-radius: 10px;
-    font-weight: bold;
-}
-
-#close-modal:hover {
-    cursor: pointer;
-    background-color: var(--button-color);
-}
-
-.read-check {
-    display: flex;
-    gap: 1em;
+    background-color: var(--hover-addSubmit-button-color);
 }
 
